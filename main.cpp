@@ -115,11 +115,20 @@ public:
 	}
 
 	//cross
-	Unit cross(Unit &father, Unit &mother)
+	Unit cross(Unit &parent)
 	{
-		Unit son;
-		//...
-		return son;
+		Unit child;
+		
+		int midpoint = int(random(best.length));
+		 
+		for (int i = 0; i < best.length; i++) {
+			//Before midpoint copy genes from one parent, after midpoint copy genes from the other parent
+			if (i > midpoint) child.best_gen[i] = best_gen[i];
+			else child.best_gen[i] = parent.best_gen[i];
+		}		
+		
+		return child;
+		
 	}
 
 	//mutation
@@ -134,7 +143,7 @@ public:
 	
 	}
 
-	//ÖÖÈº½ø»¯
+	//Ã–Ã–ÃˆÂºÂ½Ã¸Â»Â¯
 	void evolve()
 	{
 		for (int i = 0; i < genmax; i++)
@@ -181,7 +190,7 @@ int main()
 		for (int j = 0; j < chromeNum; j++)
 			printf("%d ", g.best.chrome[j]);
 
-		printf(";All Evaluation£º%d; %dth;\n", g.best.length, g.best_gen);
+		printf(";All EvaluationÂ£Âº%d; %dth;\n", g.best.length, g.best_gen);
 	}
 	system("pause");
 	return 0;
