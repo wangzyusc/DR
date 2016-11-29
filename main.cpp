@@ -74,22 +74,7 @@ public:
 
 	Group()
 	{
-		group.resize(chromeNum);
-		best.length = 0x3f3f3f3f;
-		best_gen = 0;
-		for (int i = 0; i < unit_num; i++)
-		{
-			bool flag[chromeNum] = {};
-
-			for (int j = 0; j < chromeNum; j++)
-			{
-				int t_city = rand() % chromeNum;
-				while (flag[t_city])
-					t_city = rand() % chromeNum;
-				flag[t_city] = true;
-				group[i].chrome[j] = t_city;
-			}
-		}
+		// Randomization here
 	}
 
 	void assess()
