@@ -100,16 +100,16 @@ public:
 	}
 
 	//cross
-	Unit cross(Unit &parent)
+	void cross(int parent1, int parent2)
 	{
-		Unit child;
+		int child;
 		
 		int midpoint = int(random(best.length));
 		 
 		for (int i = 0; i < best.length; i++) {
 			//Before midpoint copy genes from one parent, after midpoint copy genes from the other parent
 			if (i > midpoint) child.best_gen[i] = best_gen[i];
-			else child.best_gen[i] = parent.best_gen[i];
+			else child.best_gen[i] = best_gen[i];
 		}		
 		
 		return child;
